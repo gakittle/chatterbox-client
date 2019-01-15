@@ -9,18 +9,30 @@ var RoomsView = {
 
   initialize: function() {
     RoomsView.$button.on('click', Rooms.add);
-    var roomObj = {'roomName' : Rooms.roomList[0]};
-    RoomsView.render(roomObj);
+    RoomsView.$select.on('change', function() {
+      RoomsView.renderRoom(event, $(this).val());
+    });
+    // var roomObj = {'roomName' : Rooms.roomList[0]};
+    // RoomsView.renderRoom(Rooms.roomList[0]);
   },
 
-  render: function(newRoom) {
-    var roomDiv = RoomsView.template(newRoom);
-    RoomsView.$select.append(roomDiv);
+  renderRoom: function(event, currentRoom) {
+    App.roomname = currentRoom;
+    event.preventDefault();
+    debugger;
+    var chats = Array.from(MessagesView.$chats.children());
+    chats.forEach(function(chat) {
+      if (!$(chat).hasClass(`${currentRoom}`)) {
+        $(chat).hide();
+      } else {
+        $(chat).show();
+      }
+    });
   },
 
-  template: _.template(`
-      <option value="<%- roomName %>"> 
-      <%- roomName %>
-      </option>
-    `)
+  // template: _.template(`
+  //     <option value="<%- roomName %>"> 
+  //     <%- roomName %>
+  //     </option>
+  //   `)
 };

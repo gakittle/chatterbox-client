@@ -18,6 +18,7 @@ var FormView = {
     };
     // POST with Parse.create
     Parse.create(message, MessagesView.renderMessage);
+    $('#send').trigger('reset');
   },
 
   setStatus: function(active) {
