@@ -15,8 +15,8 @@ var MessagesView = {
     });
   },
 
-  render: function() {
-    //Parse.readAll and stuff
+  renderMessage: function() {
+    //TODO: filter messages displayed by room
     Parse.readAll((data) => {
       Messages = data;
       MessagesView.$chats.html('');

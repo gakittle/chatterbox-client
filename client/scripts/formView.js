@@ -17,7 +17,7 @@ var FormView = {
       roomname: App.roomname
     };
     // POST with Parse.create
-    Parse.create(message, MessagesView.render);
+    Parse.create(message, MessagesView.renderMessage);
   },
 
   setStatus: function(active) {
