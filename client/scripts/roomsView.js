@@ -17,9 +17,13 @@ var RoomsView = {
   },
 
   renderRoom: function(event, currentRoom) {
+    if (typeof(event) === 'string') {
+      var roomDiv = `<option value="${event}">${event}</option>`;
+      RoomsView.$select.append(roomDiv);
+    }
     App.roomname = currentRoom;
-    event.preventDefault();
-    debugger;
+    // event.preventDefault();
+    // debugger;
     var chats = Array.from(MessagesView.$chats.children());
     chats.forEach(function(chat) {
       if (!$(chat).hasClass(`${currentRoom}`)) {
