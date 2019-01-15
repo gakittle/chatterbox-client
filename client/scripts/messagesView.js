@@ -11,7 +11,7 @@ var MessagesView = {
         post.text = 'boo';
       }
       if (!post.roomname) {
-        post.roomname = 'HRSF111!!!1';
+        post.roomname = 'HRSF111!!!';
       }
       var postDiv = MessageView.render(post);
       MessagesView.$chats.append(postDiv);
