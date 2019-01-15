@@ -1,8 +1,10 @@
 var Rooms = {
-  roomList: [],
+  roomList: ['HRSF111!!!'],
 
   add: function() {
-    var newRoom = prompt('Create a new room');
+    var newRoom = prompt('Be our guest!');
+    var roomObj = {'roomName' : newRoom};
     Rooms.roomList.push(newRoom);
+    RoomsView.render(roomObj);
   }
 };
