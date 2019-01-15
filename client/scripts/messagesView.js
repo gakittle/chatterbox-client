@@ -16,6 +16,12 @@ var MessagesView = {
   },
 
   render: function() {
+    //Parse.readAll and stuff
+    Parse.readAll((data) => {
+      Messages = data;
+      MessagesView.$chats.html('');
+      MessagesView.initialize();
+    });
   }
 
 };
