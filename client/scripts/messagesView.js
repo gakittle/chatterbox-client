@@ -19,7 +19,6 @@ var MessagesView = {
   },
 
   renderMessage: function(post) {
-    //TODO: filter messages displayed by room
     if (post.username) {
       var testPost = MessageView.render(post);
       MessagesView.$chats.prepend(testPost);
@@ -28,6 +27,7 @@ var MessagesView = {
         Messages = data;
         MessagesView.$chats.html('');
         MessagesView.initialize();
+        RoomsView.renderRoom(null, App.roomname);
       });
     }
   }
