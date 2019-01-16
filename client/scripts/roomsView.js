@@ -1,6 +1,6 @@
 var RoomsView = {
 
-  $button: $('#add'),
+  $button: $('#rooms button'),
   $select: $('#rooms select'),
   $all: $('#all'),
 
