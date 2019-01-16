@@ -15,6 +15,9 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
+    setInterval(function() {
+      MessagesView.renderMessage(null, Friends.reconnect);
+    }, 10000);
   },
 
   fetch: function(callback = ()=>{}) {

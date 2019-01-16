@@ -17,6 +17,12 @@ var Friends = {
       Friends.list[frand] = true;
       $(`.${frand}`).css({'color': 'red'});
     }
+  },
+
+  reconnect: () => {
+    for (let key in Friends.list) {
+      $(`.${key}`).css({'color': 'red'});
+    }
   }
 
 };

@@ -16,6 +16,8 @@ var RoomsView = {
 
   renderRoom: function(event, currentRoom) {
     if (typeof(event) === 'string') {
+      var $home = RoomsView.$select.children()[0];
+      $home.remove();
       var roomDiv = `<option value="${event}">${event}</option>`;
       RoomsView.$select.append(roomDiv);
     }
