@@ -16,19 +16,20 @@ var MessagesView = {
       var postDiv = MessageView.render(post);
       MessagesView.$chats.append(postDiv);
     });
-    console.log('refreshing!');
   },
 
   renderMessage: function(post, callback) {
     if (post) {
-      var testPost = MessageView.render(post);
-      MessagesView.$chats.prepend(testPost);
+      if (post.username) {
+        var testPost = MessageView.render(post);
+        MessagesView.$chats.prepend(testPost);
+      }
     } else {
       Parse.readAll((data) => {
         Messages = data;
         MessagesView.$chats.html('');
         MessagesView.initialize();
-        if (App.roomname !== 'HRSF111!!!') {
+        if (App.roomname !== 'home') {
           RoomsView.renderRoom(null, App.roomname);
         }
         if (callback) {

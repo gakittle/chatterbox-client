@@ -1,5 +1,5 @@
 var Rooms = {
-  roomList: ['HRSF111!!!'],
+  roomList: ['home'],
 
   add: function() {
     var newRoom = prompt('Be our guest!');

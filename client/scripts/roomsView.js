@@ -10,8 +10,11 @@ var RoomsView = {
       RoomsView.renderRoom(event, $(this).val());
     });
     RoomsView.$all.on('click', function() {
+      App.roomname = 'home';
       $('.chat').show();
     });
+    var homeDiv = `<option value="home">home</option>`;
+    RoomsView.$select.append(homeDiv);
   },
 
   renderRoom: function(event, currentRoom) {
@@ -22,6 +25,9 @@ var RoomsView = {
       RoomsView.$select.append(roomDiv);
     }
     App.roomname = currentRoom;
+    if (App.roomname === 'home') {
+      MessagesView.renderMessage(null, Friends.reconnect);
+    }
 
     var chats = Array.from(MessagesView.$chats.children());
     chats.forEach(function(chat) {
